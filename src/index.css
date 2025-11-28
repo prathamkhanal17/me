@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Catppuccin Mocha - Neovim Terminal Theme */
+    --background: 240 21% 15%;
+    --foreground: 226 64% 88%;
+
+    --card: 240 23% 18%;
+    --card-foreground: 226 64% 88%;
+
+    --popover: 240 21% 15%;
+    --popover-foreground: 226 64% 88%;
+
+    --primary: 115 54% 76%;
+    --primary-foreground: 240 21% 15%;
+
+    --secondary: 189 71% 73%;
+    --secondary-foreground: 240 21% 15%;
+
+    --muted: 233 12% 25%;
+    --muted-foreground: 227 17% 60%;
+
+    --accent: 42 100% 78%;
+    --accent-foreground: 240 21% 15%;
+
+    --destructive: 343 81% 75%;
+    --destructive-foreground: 240 21% 15%;
+
+    --border: 233 12% 25%;
+    --input: 233 12% 25%;
+    --ring: 115 54% 76%;
+
+    --radius: 0.125rem;
+
+    /* Terminal-specific colors */
+    --terminal-green: 115 54% 76%;
+    --terminal-cyan: 189 71% 73%;
+    --terminal-yellow: 42 100% 78%;
+    --terminal-blue: 217 92% 76%;
+    --terminal-red: 343 81% 75%;
+    --terminal-surface: 237 16% 23%;
+
+    --sidebar-background: 240 23% 18%;
+    --sidebar-foreground: 226 64% 88%;
+    --sidebar-primary: 115 54% 76%;
+    --sidebar-primary-foreground: 240 21% 15%;
+    --sidebar-accent: 233 12% 25%;
+    --sidebar-accent-foreground: 226 64% 88%;
+    --sidebar-border: 233 12% 25%;
+    --sidebar-ring: 115 54% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  }
+}
+
+/* Neovim-inspired animations */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+.line-number {
+  @apply text-muted-foreground select-none;
+  font-variant-numeric: tabular-nums;
+}
+
+.terminal-text {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
